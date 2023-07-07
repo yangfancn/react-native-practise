@@ -20,8 +20,7 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 
-import ImageBackgroundDemo from './src/components/ImageBackgroundDemo';
-
+import FlatListDemo from './src/components/FlatListDemo';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -34,7 +33,7 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} backgroundColor={backgroundStyle.backgroundColor}></StatusBar>
-      <ImageBackgroundDemo />
+      <FlatListDemo />
     </SafeAreaView>
   );
 }
