@@ -20,7 +20,7 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 
-import FlatListDemo from './src/components/FlatListDemo';
+import PersonInfo from './src/components/PersonInfo';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -29,11 +29,16 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} backgroundColor={backgroundStyle.backgroundColor}></StatusBar>
-      <FlatListDemo />
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'} //文字颜色
+        backgroundColor={backgroundStyle.backgroundColor}
+        animated={true}
+        translucent={false} // true 状态栏会遮盖到页面上
+        hidden={false}
+      />
+      <PersonInfo />
     </SafeAreaView>
   );
 }
