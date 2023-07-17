@@ -20,7 +20,7 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 
-import PersonInfo from './src/components/PersonInfo';
+import TabAnimation from './src/components/animation/TabAnimation';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -38,7 +38,7 @@ function App(): JSX.Element {
         translucent={false} // true 状态栏会遮盖到页面上
         hidden={false}
       />
-      <PersonInfo />
+      <TabAnimation />
     </SafeAreaView>
   );
 }

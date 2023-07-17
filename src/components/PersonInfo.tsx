@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {
     View,
     Text,
@@ -8,7 +8,8 @@ import {
     Modal,
     StyleSheet,
     SectionList,
-    SectionListRenderItem
+    SectionListRenderItem,
+    TouchableOpacity
 } from "react-native";
 //images
 import avatarImage from '../assets/images/avatar.png';
@@ -52,6 +53,9 @@ const info = {
     agrees: []
 };
 
+/**
+ * @todo 拆分布局，拆分样式
+ */
 export default (): JSX.Element => {
     const [activeTab, setActiveTab] = useState<ActiveTab>(ActiveTab.Note);
     const [modalVisible, setModelVisible] = useState<boolean>(true);
@@ -111,7 +115,7 @@ export default (): JSX.Element => {
                         </View>
                         <View style={styles.infoCardFooter}>
                             <View style={styles.numbers}>
-                                <Pressable
+                                <TouchableOpacity
                                     style={styles.numberItem}
                                     onPress={() => setModelVisible(true)}
                                 >
@@ -121,7 +125,7 @@ export default (): JSX.Element => {
                                     <Text style={[styles.numberText, styles.mt5]}>
                                         关注
                                     </Text>
-                                </Pressable>
+                                </TouchableOpacity>
                                 <View style={[styles.numberItem, styles.mx20]}>
                                     <Text style={[styles.numberText, styles.fontMerriweatherBold]}>
                                         {info.fansCount}
@@ -138,8 +142,7 @@ export default (): JSX.Element => {
                                         获赞与收藏
                                     </Text>
                                 </View>
-                            </View>
-                            <View style={styles.infoCardFooterRightButtons}>
+                                <View style={{ flex: 1 }}></View>
                                 <Pressable style={[styles.infoCardFooterRightButton, styles.mr20]}>
                                     <Text style={styles.infoCardFooterRightButtonText}>编辑资料</Text>
                                 </Pressable>
@@ -348,7 +351,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     numbers: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     numberItem: {
 
@@ -357,16 +361,14 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#f1f1f2',
     },
-    infoCardFooterRightButtons: {
-        flexDirection: 'row',
-    },
     infoCardFooterRightButton: {
         paddingHorizontal: 10,
-        paddingVertical: 5,
         borderStyle: 'solid',
         borderWidth: 1,
         borderColor: '#f1f1f2',
-        borderRadius: 30
+        borderRadius: 30,
+        height: 36,
+        justifyContent: 'center'
     },
     infoCardFooterRightButtonText: {
         color: '#ffffff',
